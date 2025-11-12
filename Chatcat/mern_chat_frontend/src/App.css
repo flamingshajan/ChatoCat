@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+/* --- Minimalist & Clean Theme Colors 🎨 --- */
+:root {
+  /* Primary Layout Colors */
+  --color-primary: #007AFF; /* Bright Blue (Accent/Action Color) */
+  --color-primary-hover: #0056B3;
+  --color-app-bg: #F8F9FA;  /* Off-white page background */
+  --color-chat-bg: #EAE6DF; /* Light Chat background (WhatsApp style) */
+  
+  /* Interface Colors */
+  --color-sidebar-border: #E0E0E0;
+  --color-input-border: #D1D5DB;
+  --color-active-chat-bg: #E3F2FD; /* Light Blue for selected chat */
+
+  /* Messaging Colors */
+  --color-message-mine: #DCF8C6; /* Light Green for outgoing messages (Signal/WhatsApp style) */
+  --color-message-other: #FFFFFF; /* White for incoming messages */
+}
+
+/* Custom Tailwind utility classes for cleaner React markup */
+.bg-primary-color { background-color: var(--color-primary); }
+.hover\:bg-primary-hover:hover { background-color: var(--color-primary-hover); }
+.text-primary-color { color: var(--color-primary); }
+.focus\:ring-primary-color:focus { --tw-ring-color: var(--color-primary); }
+.focus\:border-primary-color:focus { border-color: var(--color-primary); }
+
+.bg-app-bg { background-color: var(--color-app-bg); }
+.border-sidebar-border { border-color: var(--color-sidebar-border); }
+.border-input-border { border-color: var(--color-input-border); }
+.bg-active-chat-bg { background-color: var(--color-active-chat-bg); }
+.bg-message-mine { background-color: var(--color-message-mine); }
+.bg-message-other { background-color: var(--color-message-other); }
+
+/* --- Base Styles & Typography --- */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-app-bg);
+}
+
+/* --- Scrollbar (Subtle Gray) --- */
+.messages-container::-webkit-scrollbar {
+  width: 6px;
+}
+.messages-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+.messages-container::-webkit-scrollbar-thumb {
+  background: #C5C5C5;
+  border-radius: 3px;
+}
+.messages-container::-webkit-scrollbar-thumb:hover {
+  background: #A5A5A5;
+}
+
+/* --- Chat Background Pattern (Minimalist Dots) --- */
+.bg-chat-bg {
+  background-color: var(--color-chat-bg); 
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-chat-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  /* Very light, barely noticeable dots */
+  background-image: radial-gradient(#C7C9CC 0.5px, transparent 0.5px);
+  background-size: 20px 20px;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+/* --- Shadows and Effects --- */
+/* Shadow for the input bar, giving it a slight lift over the chat background */
+.shadow-inner-top {
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Emoji Picker Integration */
+.emoji-picker-react {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 12px !important;
+}
+
+
+.w-20.bg-dark-nav { display: none; }
